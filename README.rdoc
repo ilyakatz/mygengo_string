@@ -17,6 +17,7 @@ Do you put it into prpoduction
 Put this into lib/tasks/mygengo.rake
   Dir["#{Gem.searcher.find('mygengo_string').full_gem_path}/tasks/*.rake"].each { |ext| load ext }
 
+3.
 Add a mygengo.yml file to your #{Rails.root.to_s}/config directory with the following lines
    development:
       token: TOKEN
