@@ -2,6 +2,42 @@
 
 Description goes here.
 
+== Installation
+
+1.
+Add this to you Gemfile
+
+  group :development, :test do
+    gem 'mygengo_string'
+  end
+
+Do you put it into prpoduction
+
+2.
+Put this into lib/tasks/mygengo.rake
+  Dir["#{Gem.searcher.find('mygengo_string').full_gem_path}/tasks/*.rake"].each { |ext| load ext }
+
+Add a mygengo.yml file to your #{Rails.root.to_s}/config directory with the following lines
+development:
+    token: TOKEN
+    project: PROJECT_NAME
+
+You man optionally add default languages that you would be pulling most often
+development:
+    token: TOKEN
+    project: PROJECT_NAME
+    languages: en,ru
+
+
+== Usage
+
+After this is configured you can run the rake task
+    rake mygengo:locale
+
+In addition, if you would like to pull down only specific languages
+
+rake mygengo:locale languages=ru
+
 == Contributing to mygengo_string
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet

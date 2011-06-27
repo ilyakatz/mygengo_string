@@ -1,23 +1,5 @@
 require 'my_gengo_locale_downloader'
 
-#Add a mygengo.yml file to your #{Rails.root.to_s}/config directory with the following lines
-#development:
-#    token: TOKEN
-#    project: PROJECT_NAME
-#
-#You man optionally add default languages that you would be pulling most often
-#development:
-#    token: TOKEN
-#    project: PROJECT_NAME
-#    languages: en,ru
-#
-#After this is configured you can run the rake task
-#    rake mygengo:locale
-#
-#In addition, if you would like to pull down only specific languages
-#
-#rake mygengo:locale languages=ru
-
 namespace :mygengo do
   desc "Download locale files from mygengo string account"
   task :locale do
