@@ -37,7 +37,7 @@ After this is configured you can run the rake task
 
 In addition, if you would like to pull down only specific languages
 
-rake mygengo:locale languages=ru
+    rake mygengo:locale languages=ru
 
 == Contributing to mygengo_string
  
