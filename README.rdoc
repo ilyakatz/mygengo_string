@@ -18,15 +18,15 @@ Put this into lib/tasks/mygengo.rake
   Dir["#{Gem.searcher.find('mygengo_string').full_gem_path}/tasks/*.rake"].each { |ext| load ext }
 
 Add a mygengo.yml file to your #{Rails.root.to_s}/config directory with the following lines
-development:
-    token: TOKEN
-    project: PROJECT_NAME
+   development:
+      token: TOKEN
+      project: PROJECT_NAME
 
 You man optionally add default languages that you would be pulling most often
-development:
-    token: TOKEN
-    project: PROJECT_NAME
-    languages: en,ru
+   development:
+      token: TOKEN
+      project: PROJECT_NAME
+      languages: en,ru
 
 
 == Usage
