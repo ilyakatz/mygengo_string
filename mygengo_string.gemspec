@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/my_gengo_locale_downloader.rb",
     "lib/mygengo_string.rb",
-    "lib/tasks/mygengo.rake",
+    "mygengo_string.gemspec",
+    "tasks/mygengo.rake",
     "test/helper.rb",
     "test/test_mygengo_string.rb"
   ]
