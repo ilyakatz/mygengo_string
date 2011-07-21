@@ -44,7 +44,11 @@ class MyGengoLocaleDownloader
       language = $1
       file = $2
       if language and file
-        name = "#{locale_dir}/#{file}.#{language}.yml"
+        if file =~/\.#{language}\./
+          name = "#{locale_dir}/#{file}.#{language}.yml"
+        else
+          name = "#{locale_dir}/#{file}.yml"
+        end
         File.delete(name) if File.exists?(name)
         zipfile.extract(name)
         puts "extracted #{name}"
