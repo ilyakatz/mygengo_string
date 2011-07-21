@@ -44,7 +44,7 @@ class MyGengoLocaleDownloader
       language = $1
       file = $2
       if language and file
-        if file =~/\.#{language}\./
+        if file =~/\.#{language}(\.)?/
           name = "#{locale_dir}/#{file}.#{language}.yml"
         else
           name = "#{locale_dir}/#{file}.yml"
