@@ -40,7 +40,8 @@ class MyGengoLocaleDownloader
 
   def unzip_files(requested_file_name, locale_dir)
     Zip::ZipFile.foreach(requested_file_name) { |zipfile|
-      zipfile.to_s =~ /(.{2})\/(.+).yaml/
+      #mygengo gives us es/file.en.yaml - for some reason the primary language can also be included
+      zipfile.to_s =~ /(.{2})\/(.+)+?(\..{2}).yaml/
       language = $1
       file = $2
       if language and file
