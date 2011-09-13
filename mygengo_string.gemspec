@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mygengo_string}
-  s.version = "0.0.5"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Ilya Katz"]
-  s.date = %q{2011-06-26}
+  s.authors = [%q{Ilya Katz}]
+  s.date = %q{2011-09-13}
   s.description = %q{A rake task to download locale files from mygengo account}
   s.email = %q{ilyakatz@gmail.com}
   s.extra_rdoc_files = [
@@ -32,13 +32,12 @@ Gem::Specification.new do |s|
     "test/test_mygengo_string.rb"
   ]
   s.homepage = %q{http://github.com/ilyakatz/mygengo_string}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{A rake task to download locale files from mygengo account}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
