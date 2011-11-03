@@ -9,6 +9,7 @@ namespace :mygengo do
     token=opts["token"]
     project=opts["project"]
     langs=opts["languages"] || "en"
+    extention=opts["extension"] || "yml"
 
     if token.nil?
       puts "!!!Please provide token in #{config_file}"
@@ -23,11 +24,10 @@ namespace :mygengo do
         languages = "en"
       end
       languages.split(",").each do |language|
-        gengo = MyGengoLocaleDownloader.new(token, project, language)
+        gengo = MyGengoLocaleDownloader.new(token, project, language, "tmp/locale",  extention)
         gengo.download_locale_files
       end
     end
 
   end
 end
-

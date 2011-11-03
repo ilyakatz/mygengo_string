@@ -2,12 +2,14 @@ class MyGengoLocaleDownloader
 
   require "zip/zip"
 
-  def initialize(token, project, requested_language="en", tmp_dir="tmp/locale")
+  def initialize(token, project, requested_language="en", tmp_dir="tmp/locale", extention="yml")
+    puts "Retriving locale: #{requested_language}" if ENV["DEBUG"]
     @requested_language=requested_language
     @dir = tmp_dir
     @locale_dir = "#{Rails.root}/config/locales"
     @token=token
     @project = project
+    @extention=extention
 
     Dir.mkdir(@dir) if !Dir.exists?(@dir)
   end
@@ -39,16 +41,19 @@ class MyGengoLocaleDownloader
   end
 
   def unzip_files(requested_file_name, locale_dir)
+    puts "Unziping #{requested_file_name} into #{locale_dir}" if ENV["DEBUG"]
     Zip::ZipFile.foreach(requested_file_name) { |zipfile|
-      #mygengo gives us es/file.en.yaml - for some reason the primary language can also be included
-      zipfile.to_s =~ /(.{2})\/(.+)+?(\..{2}).yaml/
+      zipfile.to_s =~ /(.{2})\/(.+).ya?ml/
       language = $1
       file = $2
       if language and file
-        unless file =~/\.#{language}?/
-          name = "#{locale_dir}/#{file}.#{language}.yml"
+        #mygengo has a bug where it places the primary locale in the file name...annoying
+        file.sub!(".en","")
+        #if the language already in the name, do not add it
+        unless file =~/\.(#{language})\.?/
+          name = "#{locale_dir}/#{file}.#{language}.#{@extention}"
         else
-          name = "#{locale_dir}/#{file}.yml"
+          name = "#{locale_dir}/#{file}.#{@extention}"
         end
         File.delete(name) if File.exists?(name)
         zipfile.extract(name)
