@@ -29,6 +29,14 @@ You may optionally add default languages that you would be pulling most often
       project: PROJECT_NAME
       languages: en,ru
 
+To get the project name and token 
+
+* Go to Dashboard
+* Under 'Download files' you will see a link to 'All languages' that will have the following form
+
+  http://mygengo.com/string/p/[PROJECT_NAME]/export/all/[TOKEN]
+
+
 
 == Usage
 
