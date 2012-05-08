@@ -23,7 +23,7 @@ Add a mygengo.yml file to your #{Rails.root.to_s}/config directory with the foll
       token: TOKEN
       project: PROJECT_NAME
 
-You man optionally add default languages that you would be pulling most often
+You may optionally add default languages that you would be pulling most often
    development:
       token: TOKEN
       project: PROJECT_NAME
